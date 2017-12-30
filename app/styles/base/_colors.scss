@@ -1,0 +1,97 @@
+// COLORS
+//
+// color variables should follow the same modular naming convention used when styling components
+// the root of the variable name is the name of the color (e.g. blue) followed by a modifier
+// --light --lighter, --lightest, --dark, --darker, --darkest
+//
+// modifiers should only be used if a base color has already been set
+// e.g. $red--darker only makes sense if $red already exists
+//
+// hex codes should only be used in the base color variables
+// whenever a color is needed it should use either an existing variable
+// or a variation of it using Sass color functions (e.g. darken($green, 5%))
+//
+// This is a great guide about hex colors
+// https://www.smashingmagazine.com/2012/10/the-code-side-of-color/
+//
+// we should perhaps consider switching from hex to rgba or hsla as they're easier to
+// understand and build varations of
+// https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+//
+// Styleguide 1.0
+
+//
+// BASE COLORS
+//
+
+$brand-color: #03a1e8;
+$blue: #08A8FC;
+$blue--light: #51A7E8;
+$blue--lighter: #EDF9FF;
+$blue--lightest: #F6FCFF;
+$blue--dark: #1B9BE5;
+$blue--darker: darken(#1B9BE5, 20%);
+// #3ABAFC, #51A7E8
+
+$darker: #1d252e;
+$dark: #293541;
+$gray: #AAA;
+$gray--light: #BBB;
+$gray--lighter: #CCC;
+$gray--lightest: #DDD;
+$gray--dark: #999;
+$gray--darker: #666;
+$gray--darkest: #333;
+$gray--background: #FAFAFA;
+
+// these colors were used previously and removed for the sake of consistency
+// I'll add these back using sass color functions
+// #E5E5E5, #FCFCFC, #F3F3F3, #FBFBFB
+
+$green: #23871E;
+$green--light: #8abf54;
+$green--lighter: #EFFFEE;
+
+$red: #C0392B;
+$red--light: #FFE5E1;
+$red--text: #F06C73;
+
+$orange: #EC8213;
+$orange--darker: #de453b;
+
+$yellow: #FEB14F;
+$yellow--light: #FFF9DE;
+$white: #FFFFFF;
+
+//
+// LINKS
+//
+$link-color: $gray--darkest;
+$hidden-link-color: $gray--darkest;
+$link-hover-color: $blue--dark;
+
+//
+// BUTTONS
+//
+$clear-hover: #E5E5E5;
+$clear-focus: #FCFCFC;
+$clear-active: #E5E5E5;
+$primary-active: $blue--dark;
+
+//
+// BACKGROUNDS
+//
+$background-white: #FFFFFF;
+
+//
+// BORDERS
+//
+$border-gray: #EEE;
+
+//
+// COLOR TYPES
+//
+$danger-color: $red;
+$default-color: $blue;
+$success-color: $green--light;
+$warning-color: $yellow;

@@ -1,0 +1,24 @@
+<div class="nav-container header-navigation">
+  <nav class="header-navigation--left" role="navigation">
+    <h3 class="header__logo t-header-logo">
+      {{svg-jar "ember-simple-setup" width="95px"}}
+      {{link-to "" "index" class="mobile-hide"}}
+    </h3>
+  </nav>
+
+  {{#if session.isAuthenticated}}
+    <nav class="header-navigation--right">
+      <ul class="header-navigation__options">
+        <li>{{#link-to "main.conversations" class="header-navigation__icon-link"}}{{fa-icon "comments"}}{{/link-to}}</li>
+      </ul>
+      {{user-menu user=currentUser.user class="header-navigation__options" }}
+    </nav>
+  {{else}}
+  <nav role="navigation" class="header-navigation--right">
+    <ul role="list" class="header-navigation__options">
+      <li role="listitem">{{#link-to "login" class="t-login"}}{{t "login"}}{{/link-to}}</li>
+      <li role="listitem">{{#link-to "signup" class="t-signup"}}{{t "signup"}}{{/link-to}}</li>
+    </ul>
+  </nav>
+  {{/if}}
+</div>

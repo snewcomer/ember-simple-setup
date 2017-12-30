@@ -1,0 +1,37 @@
+{{#with (changeset model validations) as |changeset|}}
+<div class="container container-wrapper">
+
+{{!-- 
+  {{svg-jar "addiction" class="svg-icons addiction" width="95px"}}
+  {{svg-jar "fast-food" class="svg-icons fast-food" width="95px"}}
+--}}
+
+  <h3>
+    {{typed-string strings=supportiveMessages typeSpeed=50 backDelay=1250 loop=true loopCount=false}}
+  </h3>
+
+  <div>
+    <form role="form" autocomplete=off {{action (perform submitName model) on="submit"}}>
+      {{validated-input 
+        model=model
+        valuePath="name"
+        changeset=changeset
+        required=true
+        placeholder=(t "username")
+        showError=false
+      }}
+
+      <button 
+        role="button" 
+        type="submit" 
+        disabled={{if (or changeset.isInvalid submitName.isRunning) "disabled"}} 
+        onclick={{action "validate" changeset}}>{{t "next"}}</button>
+
+    </form>
+  </div>
+{{!-- 
+  {{svg-jar "alcohol" width="95px" class="svg-icons alcohol"}}
+  {{svg-jar "break" width="95px" class="svg-icons break"}}
+--}}
+</div>
+{{/with}}

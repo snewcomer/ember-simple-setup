@@ -1,0 +1,93 @@
+.dropdown-menu {
+  background: $white;
+  border: 1px solid $gray--lightest;
+  border-radius: 4px;
+  box-shadow: 0px 10px 41px -16px rgba(0,0,0,0.75);
+  float: left;
+  // margin-top: 5px;
+  min-width: 15em;
+  padding: 5px 0;
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  z-index: 99999;
+
+  &--right {
+    float: none;
+    right: 0;
+  }
+}
+
+.dropdown {
+  position: relative;
+  &.menu-hidden {
+    .dropdown-menu {
+      display: none;
+    }
+  }
+  &.menu-visible {
+    .dropdown-menu {
+      display: block;
+    }
+  }
+}
+
+.dropdown__footer {
+  background: $gray--background;
+  color: $text--light;
+  padding: 10px 14px;
+  p {
+    font-size: $body-font-size-small;
+    margin: 0;
+  }
+}
+
+.dropdown__footer {
+  @include border-bottom-radius(4px);
+  font-size: $body-font-size-small;
+  margin: 5px 0 -5px 0;
+}
+
+.dropdown__body {
+  padding: 0 5px;
+}
+
+.dropdown__options {
+  border-bottom: 1px solid $border-gray;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  li {
+    display: block;
+    float: none;
+    padding: 1px 0;
+  }
+
+  a {
+    // having problems with "navigation__options a"
+    // overwriting the properties below
+    border: 0;
+    display: block;
+    font-weight: normal;
+    padding: 8px 11px;
+
+    .fa {
+      padding-right: 5px;
+    }
+
+    &.active {
+      font-weight: 600;
+    }
+
+    &.active, &:hover {
+      background: $gray--lightest;
+      color: $blue;
+    }
+  }
+}

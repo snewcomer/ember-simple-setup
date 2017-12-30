@@ -1,0 +1,155 @@
+$min-width: 325px;
+
+.form-wrapper {
+  @extend %flex-item--auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 3em 0;
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-width: $min-width;
+
+    .validated-input {
+      padding: 2em 0;
+    }
+
+    input, textarea {
+      min-width: $min-width;
+      // background-color: $brand-color;
+      // color: $white;
+      padding: 1em;
+      border: none;
+      border-bottom: 1px solid $gray--darker;
+      border-radius: 0;
+      outline-style:none;
+      box-shadow:none;
+      font-size: 1.3em;
+      -webkit-appearance: none;
+
+      // @media(max-width: $sm-screen) {
+      //   margin-bottom: 1.25em;
+      // }
+
+      // @include media($xs-screen) {
+      //   font-size: 1.2em;
+      // }
+
+      &:focus {
+        border-bottom: 2px solid $gray--darkest;
+      }
+    }
+    input::placeholder, textarea::placeholder {
+      color: $gray--darker;
+    }
+  }
+
+  button {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $white;
+    background-color: $gray--darker;
+    padding: 1.1em 3em 1.2em;
+    border-radius: 2.25em;
+    border: none;
+    display: block;
+    margin: 0 auto;
+
+    &:disabled {
+      background-color: $gray--light;
+    }
+
+    &:hover:not([disabled]) {
+      cursor: pointer;
+      background-color: darken($gray--darker, 10%);
+      color: $white;
+      transition: background-color ease 0.2s;
+    }
+  }
+
+  li.error {
+    color: $red;
+    // padding: 1em 0;
+  }
+}
+
+.tile {
+  margin-bottom: 3em;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  span, p {
+    color: $gray--darkest;
+    font-family: $normal-family;
+    font-weight: 900;
+    padding: 1em;
+    margin-right: 3em;
+    margin-left: 3em;
+    display: inline-block;
+    background: $white;
+    box-shadow: $boxShadow;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    &:hover {
+      box-shadow: $boxShadowHover;
+    }
+    @media(max-width: $sm-screen) {
+      margin-right: 0;
+      margin-left: 0;
+      padding: 0;
+    }
+  }
+  
+  h4 {
+    color: $gray--darkest;
+    margin: 1.2em; // override defaults from lib
+  }
+}
+
+// form misc items
+.back, .form-misc {
+  padding-top: 1.0em;
+  text-align: center;
+}
+
+.container-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    text-align: center;
+  }
+  // .svg-icons {
+  //   position: absolute;
+
+  //   @extend %mobile-hide;
+  // }
+  // .addiction {
+  //   right: 100px;
+  // }
+  // .fast-food {
+  //   left: 100px;
+  // }
+  // .alcohol {
+  //   top: 100px;
+  //   right: 450px;
+  // }
+  // .break {
+  //   top: 100px;
+  //   left: 450px;
+  // }
+
+
+  .additional-info {
+    @include fadeInDown();
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}

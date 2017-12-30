@@ -1,0 +1,8 @@
+{{#click-outside action=(action "hide")}}
+  <a class="user-menu__toggle" {{action "toggle"}}>
+    <img class="user-menu__avatar" src={{user.photoThumbUrl}} alt={{user.atUsername}} width="40" height="40" />
+    <span class="user-menu__arrow"></span>
+  </a>
+{{/click-outside}} 
+
+{{user-dropdown user=user action="hide"}}

@@ -1,0 +1,54 @@
+{{#with (changeset model validations) as |changeset|}}
+<div class="form-wrapper">
+  <form role="form" autocomplete=off {{action (perform signup model) on="submit"}}>
+
+    <h2>{{t "signup"}}</h2>
+
+    {{validated-input 
+      model=model
+      valuePath="email"
+      changeset=changeset
+      required=true
+      placeholder=(t "email.one")
+    }}
+
+    {{validated-input 
+      model=model
+      valuePath="username"
+      changeset=changeset
+      required=true
+      placeholder=(t "anon_username")
+      showError=false
+    }}
+
+    {{validated-input 
+      model=model
+      valuePath="password"
+      changeset=changeset
+      required=true
+      placeholder=(t "password.one")
+      type="password"
+    }}
+
+    {{validated-input 
+      model=model
+      valuePath="passwordConfirmation"
+      changeset=changeset
+      required=true
+      placeholder=(t "password_confirmation")
+      type="password"
+    }}
+
+    <button 
+      role="button" 
+      type="submit" 
+      disabled={{if (or changeset.isInvalid signup.isRunning) "disabled"}} 
+      onclick={{action "validate" changeset}}>{{t "signup"}}</button>
+
+    <div class="form-misc">
+      {{#link-to "login"}}{{t "login"}}{{/link-to}}
+    </div>
+
+  </form>
+</div>
+{{/with}}

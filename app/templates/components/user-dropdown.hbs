@@ -1,0 +1,16 @@
+<div class="dropdown__body">
+  <ul class="dropdown__options">
+    <li>{{#link-to "users.user" user.username class="slugged-route"}}Your profile{{/link-to}}</li>
+  </ul>
+  {{#if user.admin}}
+    <ul class="dropdown__options">
+      <li>{{#link-to "admin"}}{{fa-icon "terminal"}}{{t "admin"}}{{/link-to}}</li>
+    </ul>
+  {{/if}}
+  <ul class="dropdown__options">
+    <li><a class="logout" {{action "invalidateSession"}}>{{t "logout"}}</a></li>
+  </ul>
+</div>
+<div class="dropdown__footer">
+  {{t "signed_in_as"}} <strong>{{user.username}}</strong>
+</div>

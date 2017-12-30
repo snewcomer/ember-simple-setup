@@ -1,0 +1,18 @@
+{{title "ember-simple-setup"}}
+
+{{ember-load-remover}}
+
+<main id="application" class="flexbox-container">
+  {{site-header}}
+  <article role="main">
+    {{outlet}}
+  </article>
+</main>
+
+{{#if message}}
+  {{app-notice
+    message=message
+    noticeLevel=level
+    on-dismiss=(action 'dismiss_errors')
+  }}
+{{/if}}

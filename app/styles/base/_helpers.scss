@@ -1,0 +1,91 @@
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 10px;
+	height: auto;
+	width: 100%;
+
+	&--wide {
+		padding: 0 10px;
+	}
+
+	&--full-on-mobile {
+	//   @include media($sm-screen) {
+	//     padding: 0;
+	//   }
+	}
+}
+
+.narrow-container {
+	@extend .container;
+	width: 85%;
+}
+
+.flexbox-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100vh;
+}
+
+.flexbox-spacer {
+	flex: auto;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.visible {
+	visibility: visible;
+}
+
+// FLEXBOX
+
+.flex {
+	display: flex;
+}
+
+// 0 1 auto  -- grow, shrink, basis
+.flex-item--none {
+  flex: 0 0 auto;
+}
+.flex-item--auto { //1 1 auto
+  flex: auto;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+%flex-item--none {
+  flex: 0 0 auto;
+}
+
+%flex-item--auto { //1 1 auto
+  flex: auto;
+}
+
+// custom html elements
+flexauto {
+  @extend %flex-item--auto;
+}
+
+flexgrow {
+  @extend %flex-item--grow;
+}
+
+%flex-item--grow {
+  flex: 1 0 auto;
+}
+
+$boxShadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$boxShadowHover: 0 10px 20px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);

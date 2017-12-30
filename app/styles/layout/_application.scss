@@ -1,0 +1,15 @@
+main#application {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  header, footer {
+    @extend %flex-item--none;
+  }
+  article {
+    display: flex;
+    position: relative;
+    width: 100%;
+    @extend %flex-item--auto;
+  }
+}

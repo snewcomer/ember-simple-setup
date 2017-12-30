@@ -1,0 +1,30 @@
+{{#with (changeset model validations) as |changeset|}}
+  <form role="form" autocomplete=off {{action (perform save model) on="submit"}}>
+
+    <h2>{{t "edit_user"}}</h2>
+
+    {{validated-input 
+      model=model
+      valuePath="email"
+      changeset=changeset
+      required=true
+      placeholder=(t "email.one")
+    }}
+
+    {{validated-input 
+      model=model
+      valuePath="username"
+      changeset=changeset
+      required=true
+      placeholder=(t "anon_username")
+      showError=false
+    }}
+
+    <button 
+      role="button" 
+      type="submit" 
+      disabled={{if (or changeset.isInvalid save.isRunning) "disabled"}} 
+      onclick={{action "validate" changeset}}>{{t "save"}}</button>
+
+  </form>
+{{/with}}

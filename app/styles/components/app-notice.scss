@@ -1,0 +1,36 @@
+app-notice {
+  color: $white;
+  font-size: 1.3rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  line-height: $menuHeight;
+  height: $menuHeight;
+  display: flex;
+  align-items: center;
+
+  &.app-notice--error {
+    background-color: $orange;
+  }
+  &.app-notice--warning {
+    background-color: $yellow;
+  }
+  &.app-notice--success {
+    background-color: $green--light;
+  }
+
+  .app-notice__icon {
+    font-size: 2rem;
+    padding: .125rem 1rem .125rem 1.25rem;
+    float: left;
+  }
+
+  .app-notice__msg {
+    text-align: left;
+  }
+
+  .app-notice__dismiss {
+    padding: .125rem 1rem;
+  }
+}

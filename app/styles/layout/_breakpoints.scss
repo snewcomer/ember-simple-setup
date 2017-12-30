@@ -1,0 +1,14 @@
+$xs-screen: 479px;
+$sm-screen: 599px;
+$md-screen: new-breakpoint(max-width 767px);
+$lg-screen: new-breakpoint(max-width 991px);
+
+%mobile-hide {
+  @media (max-width: $sm-screen) {
+    display: none !important;
+  }
+}
+
+.mobile-hide {
+  @extend %mobile-hide;
+}
