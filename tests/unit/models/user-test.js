@@ -13,7 +13,7 @@ module('model:user', function(hooks) {
   });
 
   testForAttributes('user', [
-    'admin', 'email', 'insertedAt', 'updatedAt', 'password', 'photoLargeUrl',
+    'admin', 'cloudinaryPublicId', 'email', 'insertedAt', 'updatedAt', 'password', 'photoLargeUrl',
     'photoThumbUrl', 'username'
   ]);
 });

@@ -6,12 +6,25 @@ import { alias } from 'ember-decorators/object/computed';
 import { task } from 'ember-concurrency';
 import { classNames } from 'ember-decorators/component';
 
+import { validatePresence, validateFormat } from 'ember-changeset-validations/validators';
+
+const NEW_MODEL = {
+  username: validatePresence(true),
+  email: validateFormat({ type: 'email' }),
+}
+
 @classNames('form-wrapper')
 export default class UserDetail extends Component {
   @service appNotice
 
 
   @alias('model.hasDirtyAttributes') isDirty
+
+  constructor() {
+    super();
+
+    this.validations = NEW_MODEL;
+  }
 
   /**
    * called when hitting enter or clicking button
@@ -28,13 +41,13 @@ export default class UserDetail extends Component {
     }
   }
 
-  save = task(function * (model) {
+  save = task(function* (model) {
     if (get(this, 'isDirty')) {
       try {
         yield model.save();
-      } catch(e) {
+      } catch (e) {
         const appNotice = get(this, 'appNotice');
-        appNotice.handleNotification({message: 'oops', level: 'error'});
+        appNotice.handleNotification({ message: 'oops', level: 'error' });
       }
     }
   })

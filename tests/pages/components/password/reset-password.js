@@ -9,9 +9,9 @@ import {
 export default {
   scope: '.reset-password-form',
 
-  sendResetPasswordSuccessfully(password, passwordConfirmation) {
-    this.password(password).passwordConfirmation(passwordConfirmation).submit();
-  },
+  // sendResetPasswordSuccessfully(password, passwordConfirmation) {
+  //   this.password(password).passwordConfirmation(passwordConfirmation).submit();
+  // },
 
   password: fillable('#password'),
   // passwordLabel: text('[data-test-id="password-label"]'),

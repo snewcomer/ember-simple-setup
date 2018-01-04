@@ -21,7 +21,7 @@ export default Route.extend(ApplicationRouteMixin, {
       attemptedTransition.retry();
       set(this, 'session.attemptedTransition', null);
     } else {
-      this.transitionTo('main.conversations');
+      this.transitionTo('users.user', { slug: get(this, 'currentUser.user.username') });
     }
   },
 

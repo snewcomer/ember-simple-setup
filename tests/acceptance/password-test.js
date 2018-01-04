@@ -1,25 +1,28 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
-import passwordPage from '../pages/password';
+import { visit, currentURL, click, fillIn } from '@ember/test-helpers';
+// import passwordPage from '../pages/password';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | password test', function(hooks) {
   setupApplicationTest(hooks);
 
   test('visiting /password/reset and logging in successfully', async function(assert) {
+    let username = 'test';
     let email = 'test@test.com';
     let password = 'password';
     let token = 'abc123';
 
-    server.create('user', { email, password, token });
+    server.create('user', { username, email, password, token });
 
-    await visit('/password/reset/' + token)
+    await visit('/password/reset?token=' + token)
 
     assert.equal(currentURL(), '/password/reset?token=abc123');
 
-    await passwordPage.resetPasswordForm.sendResetPasswordSuccessfully('password', 'password');
+    await fillIn('#password', 'password');//passwordPage.resetPasswordForm.password('password');
+    await fillIn('#password-confirmation', 'password');//passwordPage.resetPasswordForm.passwordConfirmation('password');
+    await click('button');//passwordPage.resetPasswordForm.submit();
 
-    assert.equal(currentURL(), '/projects');
+    assert.equal(currentURL(), '/users/test');
   });
 
   test('visiting /password/reset and entering diff passwords returns 422', async function(assert) {
@@ -29,14 +32,17 @@ module('Acceptance | password test', function(hooks) {
 
     server.create('user', { email, password, token });
 
-    await visit('/password/reset/' + token)
+    await visit('/password/reset?token=' + token)
 
     assert.equal(currentURL(), '/password/reset?token=abc123');
 
-    await passwordPage.resetPasswordForm.sendResetPasswordSuccessfully('password', 'chuckNorris');
+    // currently a problem with ember-cli-page-object and promise chains
+    await fillIn('#password', 'password');//passwordPage.resetPasswordForm.password('password');
+    await fillIn('#password-confirmation', 'wat-password');//passwordPage.resetPasswordForm.passwordConfirmation('password');
+    await click('button');//passwordPage.resetPasswordForm.submit();
 
     assert.equal(currentURL(), '/password/reset?token=abc123');
-    assert.equal(passwordPage.errorFormatter.errors().count, 1, 'Each error message is rendered');
+    // appNotice renders
   });
 
   test('visiting /password/forgot', async function(assert) {
@@ -44,7 +50,9 @@ module('Acceptance | password test', function(hooks) {
 
     assert.equal(currentURL(), '/password/forgot');
 
-    await passwordPage.forgotPasswordForm.sendForgotPasswordSuccessfully('admin@gmail.com');
+    // await passwordPage.forgotPasswordForm.sendForgotPasswordSuccessfully('admin@gmail.com');
+    await fillIn('[name=email]', 'owner@gmail.com');//passwordPage.resetPasswordForm.password('password');
+    await click('button');//passwordPage.resetPasswordForm.submit();
 
     assert.equal(currentURL(), '/');
   });

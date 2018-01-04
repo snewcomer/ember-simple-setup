@@ -1,16 +1,13 @@
 <div class="nav-container header-navigation">
   <nav class="header-navigation--left" role="navigation">
     <h3 class="header__logo t-header-logo">
-      {{svg-jar "ember-simple-setup" width="95px"}}
+      {{svg-jar "general" width="95px"}}
       {{link-to "" "index" class="mobile-hide"}}
     </h3>
   </nav>
 
   {{#if session.isAuthenticated}}
     <nav class="header-navigation--right">
-      <ul class="header-navigation__options">
-        <li>{{#link-to "main.conversations" class="header-navigation__icon-link"}}{{fa-icon "comments"}}{{/link-to}}</li>
-      </ul>
       {{user-menu user=currentUser.user class="header-navigation__options" }}
     </nav>
   {{else}}

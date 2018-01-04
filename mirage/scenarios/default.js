@@ -7,7 +7,7 @@ export default function(server) {
 
   server.create('user', {
     admin: true,
-    email: 'owner@ember-simple-setup.org',
+    email: 'owner@gmail.org',
     password: 'password',
     username: 'owner'
   });

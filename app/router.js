@@ -7,11 +7,11 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('admin');
   this.route('login');
   this.route('signup');
   this.route('main', function() {
   });
-  this.route('admin');
   this.route('users', function() {
     this.route('user', { path: '/:slug' });
   });

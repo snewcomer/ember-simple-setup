@@ -49,12 +49,12 @@ export default class PasswordResetController extends Controller {
       yield get(this, 'ajax').request('/password/reset', {
         method: 'POST',
         data: {
-          token: get(this, 'controller.token'),
+          token: get(this, 'token'),
           password,
           'password-confirmation': passwordConfirmation
         }
       }).then((response) => {
-        return get(this, 'session').authenticate('authenticator:jwt', { identification: response.email, password });
+        return get(this, 'session').authenticate('authenticator:jwt', { identification: response.username, password });
       });
     } catch(e) {
       const appNotice = get(this, 'appNotice');
