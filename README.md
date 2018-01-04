@@ -1,7 +1,23 @@
 # ember-simple-setup
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This repo provides a simple out of the box solution including
+
+- JSONAPI spec
+- Important structural components
+- Error handling with Application Notice
+- Authentication
+- Internationalization
+- Password Reset / Forgot Components
+- User menu dropdown components
+- Full test suite using latest and greatest architecture (qunit)
+- Usage of ES6 classes and decorators
+- Application loading indicator
+- Simple deployment solution
+- Simple to understand SCSS structure
+
+## What backend should I use?
+
+Pairs well with [elixir-simple-setup](https://github.com/snewcomer/elixir-simple-setup).
 
 ## Prerequisites
 
