@@ -1,0 +1,10 @@
+{{yield}}
+<div class="hover">
+  {{hoverText}}
+</div>
+{{#if (and helpText (not hasImage))}}
+  <div class="text">
+    <p>{{t helpText}}</p>
+  </div>
+{{/if}}
+<input type="file" onchange={{action filesDidChange value="target.files"}}>

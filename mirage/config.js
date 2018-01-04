@@ -2,6 +2,11 @@ import Mirage from 'ember-cli-mirage';
 
 export default function () {
 
+  this.post('https://api.cloudinary.com/**', () => {
+    return new Mirage.Response(201, {}, {
+      public_id: 'abc123'
+    });
+  });
   // These comments are here to help you get started. Feel free to delete them.
 
   /*

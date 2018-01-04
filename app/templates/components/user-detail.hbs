@@ -3,6 +3,15 @@
 
     <h2>{{t "edit_user"}}</h2>
 
+    {{#drag-zone}}
+      {{image-drop
+        hoverText=(t "photo.change")
+        large=true
+        onDone=(action "uploadDone")
+        originalImage=user.photoLargeUrl
+      }}
+    {{/drag-zone}}
+
     {{validated-input 
       model=model
       valuePath="email"

@@ -1,0 +1,134 @@
+@mixin outside-border($width, $style, $color, $radius: 5px) {
+  $border-radius: $radius + ($width * 2);
+
+  &:before {
+    border-color: $color;
+    border-radius: $border-radius;
+    border-style: $style;
+    border-width: $width;
+    content: "";
+    position: absolute;
+    top: -$width;
+    left: -$width;
+    right: -$width;
+    bottom: -$width;
+    z-index: -1;
+  }
+
+  &--circle {
+    &:before {
+      border-radius: $border-radius;
+    }
+  }
+}
+
+.image-drop {
+  $size: 150px;
+  $border-radius: $size / 2;
+
+  height: $size;
+  width: $size;
+  border-radius: 5px;
+  background: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include outside-border(2px, solid, transparent);
+
+  &:not(.has-image) {
+    background: $gray--light;
+  }
+
+  &.is-large {
+    $size: 200px;
+    height: $size;
+    width: $size;
+
+    @media (max-width: $sm-screen) {
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  .text {
+    text-align: center;
+    p {
+      color: $gray--darkest;
+      font-size: $body-font-size-normal;
+      width: 100%;
+    }
+  }
+
+  .hover {
+    display: none;
+    text-align: center;
+    p {
+      color: $white;
+      font-size: $body-font-size-normal;
+      width: 100%;
+    }
+  }
+
+  &--circle {
+    border-radius: $border-radius;
+
+    input[type=file] {
+      border-radius: $border-radius;
+    }
+  }
+
+  &--drag {
+    @include outside-border(2px, dashed, $gray--lightest);
+
+    &.image-drop--circle {
+      @include outside-border(2px, default, $gray--lightest, $border-radius);
+    }
+
+    // background: transparent !important;
+  }
+
+  &--active {
+    // background: $white;
+
+    &:before {
+      border-color: $blue--dark;
+    }
+
+    // p {
+    //   color: $gray--darkest !important;
+    // }
+  }
+
+  &--active, &--drag {
+    .hover {
+      display: flex;
+    }
+    .text {
+      display: none;
+    }
+  }
+
+  &:hover:not(.image-drop--drag) {
+    @include outside-border(2px, solid, $blue--dark);
+
+    &.image-drop--circle {
+      @include outside-border(2px, solid, $blue--dark, $border-radius);
+    }
+  }
+}
+
+.image-drop input[type=file] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+  z-index: 3;
+}

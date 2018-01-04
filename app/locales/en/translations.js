@@ -10,8 +10,13 @@ export default {
   },
   admin: "Admin",
   back: "back",
-  cue: "trigger",
+  photo: {
+    change: 'Change Photo',
+    drop: 'Add your photo',
+    upload_successful: 'Upload Successful'
+  },
   edit_user: "Edit User",
+  save_successful: "Saved",
   email: {
     one: "email",
     sent: 'Email Sent'
