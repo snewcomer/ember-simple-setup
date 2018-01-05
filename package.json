@@ -56,6 +56,7 @@
     "ember-i18n": "^5.1.0",
     "ember-load": "0.0.12",
     "ember-load-initializers": "^1.0.0",
+    "ember-modal-dialog": "^2.4.1",
     "ember-native-dom-helpers": "^0.5.10",
     "ember-normalize": "^1.0.0",
     "ember-page-title": "^4.0.1",

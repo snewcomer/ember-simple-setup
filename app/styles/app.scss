@@ -6,6 +6,8 @@
 // A modern, HTML5-ready alternative to CSS resets
 // https://necolas.github.io/normalize.css/
 @import "normalize";
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
 
 //
 // BASE
@@ -15,6 +17,7 @@
 @import "base/_fonts";
 @import "base/_base";
 @import "base/_animate";
+@import "base/_globals";
 
 //
 // LAYOUT
@@ -42,3 +45,4 @@
 @import "components/user-menu";
 @import "components/password";
 @import "components/image-drop";
+@import "components/modal";
