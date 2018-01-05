@@ -3,7 +3,7 @@ import attr from 'ember-data/attr';
 
 export default Model.extend({
   admin: attr(),
-  cloudinaryPublicId: attr('date'),
+  cloudinaryPublicId: attr(),
   username: attr(),
   password: attr(),
   email: attr(),
