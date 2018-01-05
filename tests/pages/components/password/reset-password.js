@@ -17,7 +17,7 @@ export default {
   // passwordLabel: text('[data-test-id="password-label"]'),
   // passwordConfirmationLabel: text('[data-test-id="password-confirmation-label"]'),
 
-  passwordConfirmation: fillable('#password-confirmation'),
+  passwordConfirmation: fillable('#passwordConfirmation'),
 
   passwordInput: {
     scope: '#password',
@@ -27,7 +27,7 @@ export default {
   },
 
   passwordConfirmationInput: {
-    scope: '#password-confirmation',
+    scope: '#passwordConfirmation',
     isVisible: isVisible(),
     value: value(),
     property: property('type')

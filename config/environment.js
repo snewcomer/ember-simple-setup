@@ -39,8 +39,8 @@ module.exports = function(environment) {
     ENV['ember-cli-mirage'] = {
       enabled: false
     };
-    ENV.cloudinary.cloud = 'snewcomer';
-    ENV.cloudinary.uploadPreset = 'qzyqzcjk'
+    ENV.cloudinary.cloud = 'me';
+    ENV.cloudinary.uploadPreset = 'wat'
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -85,8 +85,8 @@ module.exports = function(environment) {
     ENV.DS.host = 'https://website.com';
     ENV.API_BASE_URL = 'https://website.com';
     ENV.WEB_BASE_URL = 'https://website.com'; 
-    ENV.cloudinary.cloud = 'snewcomer';
-    ENV.cloudinary.uploadPreset = 'qzyqzcjk';
+    ENV.cloudinary.cloud = 'me';
+    ENV.cloudinary.uploadPreset = 'wat';
   }
 
   ENV['ember-simple-auth-token'] = {

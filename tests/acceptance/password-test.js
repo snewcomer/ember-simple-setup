@@ -19,7 +19,7 @@ module('Acceptance | password test', function(hooks) {
     assert.equal(currentURL(), '/password/reset?token=abc123');
 
     await fillIn('#password', 'password');//passwordPage.resetPasswordForm.password('password');
-    await fillIn('#password-confirmation', 'password');//passwordPage.resetPasswordForm.passwordConfirmation('password');
+    await fillIn('#passwordConfirmation', 'password');//passwordPage.resetPasswordForm.passwordConfirmation('password');
     await click('button');//passwordPage.resetPasswordForm.submit();
 
     assert.equal(currentURL(), '/users/test');
@@ -38,7 +38,7 @@ module('Acceptance | password test', function(hooks) {
 
     // currently a problem with ember-cli-page-object and promise chains
     await fillIn('#password', 'password');//passwordPage.resetPasswordForm.password('password');
-    await fillIn('#password-confirmation', 'wat-password');//passwordPage.resetPasswordForm.passwordConfirmation('password');
+    await fillIn('#passwordConfirmation', 'wat-password');//passwordPage.resetPasswordForm.passwordConfirmation('password');
     await click('button');//passwordPage.resetPasswordForm.submit();
 
     assert.equal(currentURL(), '/password/reset?token=abc123');

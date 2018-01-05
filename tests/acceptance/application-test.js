@@ -72,7 +72,7 @@ module('Acceptance | application test', function(hooks) {
     await fillIn('#username', username);
     await fillIn('#email', email);
     await fillIn('#password', password);
-    await fillIn('#password-confirmation', password);
+    await fillIn('#passwordConfirmation', password);
     await click('button[type=submit]');
 
     assert.equal(currentURL(), '/users/test');
