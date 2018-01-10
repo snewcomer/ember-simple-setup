@@ -12,25 +12,25 @@
 //
 // BASE
 //
-@import "base/_helpers";
-@import "base/_colors";
-@import "base/_fonts";
-@import "base/_base";
-@import "base/_animate";
-@import "base/_globals";
+@import "base/helpers";
+@import "base/colors";
+@import "base/fonts";
+@import "base/base";
+@import "base/animate";
+@import "base/globals";
 
 //
 // LAYOUT
 //
-@import "layout/_application";
-@import "layout/_breakpoints";
-@import "layout/_header";
-@import "layout/_footer";
+@import "layout/application";
+@import "layout/breakpoints";
+@import "layout/header";
+@import "layout/footer";
 
 //
 // HELPERS
 //
-@import "helpers/_mixins";
+@import "helpers/mixins";
 
 // TEMPLATES
 //

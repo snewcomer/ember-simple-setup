@@ -7,21 +7,34 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 export default Route.extend(ApplicationRouteMixin, {
   currentUser: service(),
 
-  async sessionAuthenticated() {
+  /**
+   * load the current user loaded into the session
+   * @method beforeModel
+   */
+  async beforeModel() {
     try {
       await this._loadCurrentUser()
-      this._attemptTransitionAfterAuthentication();
+      return this._super(...arguments);
+    } catch (_e) {
+      this._invalidateSession();
+    }
+  },
+
+  async sessionAuthenticated() {
+    try {
+      const user = await this._loadCurrentUser();
+      this._attemptTransitionAfterAuthentication(user);
     } catch(e) {
       this._invalidateSession()
     }
   },
-  _attemptTransitionAfterAuthentication() {
+  _attemptTransitionAfterAuthentication(user) {
     let attemptedTransition = get(this, 'session.attemptedTransition');
     if (isPresent(attemptedTransition)) {
       attemptedTransition.retry();
       set(this, 'session.attemptedTransition', null);
     } else {
-      this.transitionTo('users.user', { slug: get(this, 'currentUser.user.username') });
+      this.transitionTo('users.user', { slug: get(user, 'username') });
     }
   },
 

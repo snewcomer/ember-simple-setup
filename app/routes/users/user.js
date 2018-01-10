@@ -7,6 +7,6 @@ export default class UserRoute extends Route {
 
   async model() {
     let userId = get(this, 'currentUser.user.id');
-    return this.store.findRecord('user', userId);
+    return await this.store.findRecord('user', userId);
   }
 }
