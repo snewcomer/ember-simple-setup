@@ -15,7 +15,7 @@ const NEW_MODEL = {
 
 @classNames('form-wrapper')
 export default class UserDetail extends Component {
-  @service appNotice
+  @service emberAppNotice
 
 
   @alias('model.hasDirtyAttributes') isDirty
@@ -46,7 +46,7 @@ export default class UserDetail extends Component {
     let user = get(this, 'model');
     set(user, 'cloudinaryPublicId', cloudinaryPublicId);
     get(this, 'save').perform(user, () => {
-      const appNotice = get(this, 'appNotice');
+      const appNotice = get(this, 'emberAppNotice');
       appNotice.handleNotification({message: 'photo.upload_successful', level: 'success'});
     });
   }
@@ -58,11 +58,11 @@ export default class UserDetail extends Component {
         if (cb) {
           cb();
         } else {
-          const appNotice = get(this, 'appNotice');
+          const appNotice = get(this, 'emberAppNotice');
           appNotice.handleNotification({message: 'save_successful', level: 'success'});
         }
       } catch (e) {
-        const appNotice = get(this, 'appNotice');
+        const appNotice = get(this, 'emberAppNotice');
         appNotice.handleNotification({ message: 'oops', level: 'error' });
       }
     }

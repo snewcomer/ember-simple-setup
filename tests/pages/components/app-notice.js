@@ -5,7 +5,7 @@ import {
 
 export default {
   msg: {
-    scope: '[data-test-id="app-notice"]',
+    scope: '[data-test-id="ember-app-notice"]',
     isVisible: isVisible()
   },
   close: {

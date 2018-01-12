@@ -39,7 +39,7 @@ export default Component.extend({
   url: `https://api.cloudinary.com/v1_1/${ENV.cloudinary.cloud}/image/upload`,
 
   appDragState: service('dragState'),
-  appNotice: service(),
+  emberAppNotice: service(),
 
   hasDroppedImage: notEmpty('droppedImage'),
   hasImage: or('hasDroppedImage', 'hasOriginalImage'),
@@ -158,7 +158,7 @@ export default Component.extend({
         .then((event) => this._handleUploadDone(event));
     } catch (e) {
       set(this, 'droppedImage', null);
-      const appNotice = get(this, 'appNotice');
+      const appNotice = get(this, 'emberAppNotice');
       appNotice.handleNotification({ message: 'oops', level: 'error' });
     }
   }).maxConcurrency(3).enqueue(),

@@ -123,31 +123,14 @@ $min-width: 325px;
   justify-content: center;
   align-items: center;
 
-  h3 {
-    text-align: center;
+  .first-section {
+    height: 100vh;
+    h3 {
+      text-align: center;
+    }
   }
-  // .svg-icons {
-  //   position: absolute;
 
-  //   @extend %mobile-hide;
-  // }
-  // .addiction {
-  //   right: 100px;
-  // }
-  // .fast-food {
-  //   left: 100px;
-  // }
-  // .alcohol {
-  //   top: 100px;
-  //   right: 450px;
-  // }
-  // .break {
-  //   top: 100px;
-  //   left: 450px;
-  // }
-
-
-  .additional-info {
+  .another-section {
     @include fadeInDown();
     font-size: 1.2rem;
     text-align: center;

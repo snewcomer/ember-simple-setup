@@ -19,10 +19,10 @@ export default class SigninController extends Controller {
   @service session
 
   /**
-    @property appNotice
+    @property emberAppNotice
     @type Ember.Service
   */
-  @service appNotice
+  @service emberAppNotice
 
   constructor() {
     super();
@@ -59,7 +59,7 @@ export default class SigninController extends Controller {
     try {
       yield get(this, 'session').authenticate('authenticator:jwt', { identification: username, password });
     } catch(e) {
-      const appNotice = get(this, 'appNotice');
+      const appNotice = get(this, 'emberAppNotice');
       if (e.errors[0].status === 401) {
         appNotice.handleNotification({message: 'login_fail', level: 'error'});
       } else {

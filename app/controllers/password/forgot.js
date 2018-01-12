@@ -18,10 +18,10 @@ export default class PasswordForgotController extends Controller {
   */
   @service ajax
   /**
-    @property appNotice
+    @property emberAppNotice
     @type Ember.Service
   */
-  @service appNotice
+  @service emberAppNotice
 
   constructor() {
     super();
@@ -33,7 +33,7 @@ export default class PasswordForgotController extends Controller {
   }
 
   forgotPassword = task(function * ({ email }) {
-    const appNotice = get(this, 'appNotice');
+    const appNotice = get(this, 'emberAppNotice');
     try {
       yield get(this, 'ajax').request('/password/forgot', {
         method: 'POST',

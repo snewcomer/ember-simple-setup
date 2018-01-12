@@ -28,10 +28,10 @@ export default class SignupController extends Controller {
   */
   @service session
   /**
-    @property appNotice
+    @property emberAppNotice
     @type Ember.Service
   */
-  @service appNotice
+  @service emberAppNotice
 
   constructor() {
     super();
@@ -64,7 +64,7 @@ export default class SignupController extends Controller {
     try {
       await get(this, 'session').authenticate('authenticator:jwt', { identification: username, password });
     } catch(e) {
-      const appNotice = get(this, 'appNotice');
+      const appNotice = get(this, 'emberAppNotice');
       appNotice.handleNotification({message: 'oops', level: 'error'});
     }
   }
@@ -76,7 +76,7 @@ export default class SignupController extends Controller {
         return this.signIn({ username, password });
       });
     } catch(e) {
-      const appNotice = get(this, 'appNotice');
+      const appNotice = get(this, 'emberAppNotice');
       appNotice.handleNotification({message: 'oops', level: 'error'});
     }
   })

@@ -8,6 +8,7 @@
 @import "normalize";
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
+@import "ember-app-notice";
 
 //
 // BASE
@@ -39,7 +40,6 @@
 //
 // COMPONENTS
 //
-@import "components/app-notice";
 @import "components/loading-spinner";
 @import "components/dropdown-menu";
 @import "components/user-menu";

@@ -29,10 +29,10 @@ export default class PasswordResetController extends Controller {
   */
   @service ajax
   /**
-    @property appNotice
+    @property emberAppNotice
     @type Ember.Service
   */
-  @service appNotice
+  @service emberAppNotice
 
   constructor() {
     super();
@@ -57,7 +57,7 @@ export default class PasswordResetController extends Controller {
         return get(this, 'session').authenticate('authenticator:jwt', { identification: response.username, password });
       });
     } catch(e) {
-      const appNotice = get(this, 'appNotice');
+      const appNotice = get(this, 'emberAppNotice');
       appNotice.handleNotification({message: 'oops', level: 'error'});
     }
   })
