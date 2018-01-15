@@ -9,6 +9,7 @@
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
 @import "ember-app-notice";
+@import 'ember-burger-menu';
 
 //
 // BASE
@@ -40,6 +41,7 @@
 //
 // COMPONENTS
 //
+@import "components/burger-menu";
 @import "components/loading-spinner";
 @import "components/dropdown-menu";
 @import "components/user-menu";

@@ -2,17 +2,36 @@
 
 {{ember-load-remover}}
 
-<main id="application" class="flexbox-container">
-  {{site-header}}
-  <article role="main">
-    {{outlet}}
-  </article>
-</main>
+{{#burger-menu as |burger|}}
+  {{#burger.menu itemTagName="li" as |menu|}}
+    <button {{action burger.state.actions.close}}>{{fa-icon "close" size="2"}}</button>
+
+    <ul>
+      {{#menu.item}}
+        {{link-to (t "login") "login"}}
+      {{/menu.item}}
+
+      {{#menu.item}}
+        {{link-to (t "signup") "signup"}}
+      {{/menu.item}}
+    </ul>
+  {{/burger.menu}}
+
+  {{#burger.outlet}}
+    <button {{action burger.state.actions.toggle}}>{{fa-icon "bars" size="2"}}</button>
+    <main id="application" class="flexbox-container">
+      {{site-header}}
+      <article role="main">
+        {{outlet}}
+      </article>
+    </main>
+  {{/burger.outlet}}
+{{/burger-menu}}
 
 {{#if message}}
   {{ember-app-notice
     message=(t message)
     noticeLevel=level
-    on-dismiss=(action 'dismiss_errors')
+    on-dismiss=(action "dismiss_errors")
   }}
 {{/if}}

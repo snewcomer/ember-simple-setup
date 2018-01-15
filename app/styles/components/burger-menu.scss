@@ -1,0 +1,106 @@
+$accent-color: $white;
+$text-color: $gray--darkest;
+
+$animation-duration: $bm-transition-duration - 0.1s;
+
+@mixin link-color($color) {
+  color: $color;
+
+  &:hover, &:focus, &:active, &:active:focus, &.active, &.active:hover, &.active:focus {
+    color: $color;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.ember-burger-menu {
+  .bm-content {
+    button {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      border: none;
+      background-color: $white;
+      i {
+        color: $gray--darker;
+      }
+    }
+  }
+  .bm-menu {
+    background: $accent-color;
+    overflow: auto;
+
+    button {
+      border: none;
+      background-color: $white;
+    }
+
+    a.close {
+      position: absolute;
+      top: 0;
+      padding: 10px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        a {
+          display: block;
+          padding: 1em 1em 1em 1.2em;
+          outline: none;
+          border-bottom: 1px solid rgba(0,0,0,0.2);
+          color: $text-color;
+          text-transform: uppercase;
+          text-shadow: 0 0 1px rgba(255,255,255,0.1);
+          letter-spacing: 1px;
+          transition: background $animation-duration;
+          cursor: pointer;
+
+          > i {
+            margin-right: 20px;
+            font-size: 20px;
+
+            &:before {
+              vertical-align: middle;
+            }
+          }
+
+          &:hover {
+            color: $brand-color;
+          }
+        }
+
+
+        &:first-child a {
+          border-top: 1px solid rgba(0,0,0,0.2);
+        }
+      }
+    }
+  }
+}
+
+.btn-outline {
+  border-color: $accent-color;
+  box-shadow: none;
+  color: $text-color;
+  font-weight: 300;
+  background: transparent;
+
+  &:hover, &:focus, &:active, &:active:focus, &.active, &.active:hover, &.active:focus {
+    z-index: 0;
+    outline: 0;
+    box-shadow: none;
+    background: $accent-color;
+    color: $text-color;
+    border-color: darken($accent-color, 5);
+  }
+}
+
+.btn-group > .btn.active {
+  z-index: 0;
+}
