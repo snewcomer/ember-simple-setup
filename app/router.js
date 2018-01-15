@@ -21,6 +21,7 @@ Router.map(function() {
     this.route('forgot');
   });
   this.route('redirect', { path: '/*wildcard' })
+  this.route('application-error');
 });
 
 export default Router;
