@@ -1,7 +1,7 @@
 $xs-screen: 479px;
 $sm-screen: 599px;
-$md-screen: new-breakpoint(max-width 767px);
-$lg-screen: new-breakpoint(max-width 991px);
+$md-screen: 767px;
+$lg-screen: 991px;
 
 %mobile-hide {
   @media (max-width: $sm-screen) {
@@ -9,6 +9,16 @@ $lg-screen: new-breakpoint(max-width 991px);
   }
 }
 
+%desktop-hide {
+  @media (min-width: $lg-screen) {
+    display: none !important;
+  }
+}
+
 .mobile-hide {
   @extend %mobile-hide;
+}
+
+.desktop-hide {
+  @extend %desktop-hide;
 }

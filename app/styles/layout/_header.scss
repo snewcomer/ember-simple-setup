@@ -6,6 +6,7 @@ $menuHeight: 65px;
   padding: 0 10px;
   height: $menuHeight;
 
+
   @media(min-width: $lg-screen) {
     display: flex;
     justify-content: center;
@@ -52,6 +53,16 @@ $menuHeight: 65px;
   }
 
   .header-navigation {
+    width: 90%;
+    &--left {
+      @extend %flex-item--auto;
+      @media (max-width: $sm-screen) {
+        justify-content: center;
+      }
+    }
+    &--right {
+      @extend %flex-item--none;
+    }
     &--left, &--right {
       display: flex;
       margin-left: 2em;

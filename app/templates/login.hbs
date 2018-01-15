@@ -26,6 +26,7 @@
     <button 
       role="button" 
       type="submit" 
+      class="login"
       disabled={{if (or changeset.isInvalid signin.isRunning) "disabled"}} 
       onclick={{action "validate" changeset}}>{{t "login"}}</button>
 

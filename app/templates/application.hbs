@@ -4,7 +4,7 @@
 
 {{#burger-menu as |burger|}}
   {{#burger.menu itemTagName="li" as |menu|}}
-    <button {{action burger.state.actions.close}}>{{fa-icon "close" size="2"}}</button>
+    <button class="burger-close desktop-hide" {{action burger.state.actions.close}}>{{fa-icon "close" size="2"}}</button>
 
     <ul>
       {{#menu.item}}
@@ -14,11 +14,20 @@
       {{#menu.item}}
         {{link-to (t "signup") "signup"}}
       {{/menu.item}}
+      {{#if session.isAuthenticated}}
+        {{#menu.item}}
+          {{#link-to "admin"}}{{fa-icon "terminal"}}{{t "admin"}}{{/link-to}}
+        {{/menu.item}}
+
+        {{#menu.item}}
+          <a class="mobile-logout" {{action "invalidateSession"}}>{{t "logout"}}</a>
+        {{/menu.item}}
+      {{/if}}
     </ul>
   {{/burger.menu}}
 
   {{#burger.outlet}}
-    <button {{action burger.state.actions.toggle}}>{{fa-icon "bars" size="2"}}</button>
+    <button class="burger-open desktop-hide" {{action burger.state.actions.toggle}}>{{fa-icon "bars" size="2"}}</button>
     <main id="application" class="flexbox-container">
       {{site-header}}
       <article role="main">

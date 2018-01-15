@@ -20,7 +20,7 @@ module('Acceptance | password test', function(hooks) {
 
     await fillIn('#password', 'password');//passwordPage.resetPasswordForm.password('password');
     await fillIn('#passwordConfirmation', 'password');//passwordPage.resetPasswordForm.passwordConfirmation('password');
-    await click('button');//passwordPage.resetPasswordForm.submit();
+    await click('.reset-password-submit');//passwordPage.resetPasswordForm.submit();
 
     assert.equal(currentURL(), '/users/test');
   });
@@ -39,7 +39,7 @@ module('Acceptance | password test', function(hooks) {
     // currently a problem with ember-cli-page-object and promise chains
     await fillIn('#password', 'password');//passwordPage.resetPasswordForm.password('password');
     await fillIn('#passwordConfirmation', 'wat-password');//passwordPage.resetPasswordForm.passwordConfirmation('password');
-    await click('button');//passwordPage.resetPasswordForm.submit();
+    await click('.reset-password-submit');//passwordPage.resetPasswordForm.submit();
 
     assert.equal(currentURL(), '/password/reset?token=abc123');
     // appNotice renders
@@ -52,7 +52,7 @@ module('Acceptance | password test', function(hooks) {
 
     // await passwordPage.forgotPasswordForm.sendForgotPasswordSuccessfully('admin@gmail.com');
     await fillIn('[name=email]', 'owner@gmail.com');//passwordPage.resetPasswordForm.password('password');
-    await click('button');//passwordPage.resetPasswordForm.submit();
+    await click('.forgot-password-submit');//passwordPage.resetPasswordForm.submit();
 
     assert.equal(currentURL(), '/');
   });

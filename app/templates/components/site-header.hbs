@@ -11,7 +11,7 @@
       {{user-menu user=currentUser.user class="header-navigation__options" }}
     </nav>
   {{else}}
-  <nav role="navigation" class="header-navigation--right">
+  <nav role="navigation" class="header-navigation--right mobile-hide">
     <ul role="list" class="header-navigation__options">
       <li role="listitem">{{#link-to "login" class="t-login"}}{{t "login"}}{{/link-to}}</li>
       <li role="listitem">{{#link-to "signup" class="t-signup"}}{{t "signup"}}{{/link-to}}</li>

@@ -17,7 +17,7 @@ $animation-duration: $bm-transition-duration - 0.1s;
 
 .ember-burger-menu {
   .bm-content {
-    button {
+    .burger-open {
       position: absolute;
       top: 1rem;
       left: 1rem;
@@ -32,7 +32,7 @@ $animation-duration: $bm-transition-duration - 0.1s;
     background: $accent-color;
     overflow: auto;
 
-    button {
+    .burger-close {
       border: none;
       background-color: $white;
     }
