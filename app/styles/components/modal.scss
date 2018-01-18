@@ -27,7 +27,7 @@ body.centered-modal-showing {
 .centered-scrolling-container {
   position: relative;
   background-color: white;
-  min-width: 30em;
+  min-width: 20em;
   max-width: 65em;
   min-height: 20em;
   margin-top: 3em;
@@ -82,5 +82,10 @@ body.centered-modal-showing {
 	.modal-footer {
 		padding: 1rem 0;
 		text-align: center;
-	}
+  }
+
+  @media (max-width: $sm-screen) {
+    margin: 0;
+    @include fullScreen();
+  }
 }

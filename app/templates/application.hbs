@@ -2,8 +2,11 @@
 
 {{ember-load-remover}}
 
-{{#burger-menu as |burger|}}
-  {{#burger.menu itemTagName="li" as |menu|}}
+{{#burger-menu 
+  dismissOnClick=true
+  dismissOnEsc=true
+  as |burger|}}
+  {{#burger.menu dismissOnItemClick=true itemTagName="li" as |menu|}}
     <button class="burger-close desktop-hide" {{action burger.state.actions.close}}>{{fa-icon "close" size="2"}}</button>
 
     <ul>

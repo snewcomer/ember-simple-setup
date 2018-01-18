@@ -1,3 +1,3 @@
 <div role="dialog" labelledby="applicationTitle" aria-describedby="alertDialogBody">
-  {{yield (hash title=(component "alert-title") body=(component "alert-body") footer=(component "alert-footer"))}}
+  {{yield (hash title=(component "alert-title" onClose=onClose) body=(component "alert-body") footer=(component "alert-footer"))}}
 </div>
